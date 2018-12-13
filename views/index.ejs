@@ -2,10 +2,59 @@
 <html>
   <head>
     <title>Tiny moneybook</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
   <body>
-    <h1>Tiny moneybook</h1>
-    <p>Record your weekly spendings.</p>
+<div class="container">
+<div class="row">
+
+  <div class="col-md-8 col-md-offset-2">
+
+    <div class="page-header">
+      <h1>Tiny moneybook</h1>
+      <p>Record your weekly spendings.</p>
+    </div>
+
+    <table class="table table-striped">
+      <tr>
+        <th>#</th>
+        <th>Item</th>
+        <th>Amount</th>
+        <th>Unit</th>
+      </tr>
+      <tr>
+        <td class="col-md-1">1</td>
+        <td class="col-md-4">Ironman USB stick</td>
+        <td class="col-md-1">20.12</td>
+        <td class="col-md-1">USD</td>
+      </tr>
+      <tr>
+        <td class="col-md-1">2</td>
+        <td class="col-md-4">Dinner at Pepper's restraunt</td>
+        <td class="col-md-1">7,500</td>
+        <td class="col-md-1">KRW</td>
+      </tr>
+      <tr class="vcenter">
+        <td class="col-md-1"></td>
+        <td class="col-md-4"><input id="newItem" type="text" class="form-control input-sm"></input></td>
+        <td class="col-md-1"><input id="newAmount" type="text" class="form-control input-sm"></input></td>
+        <td class="col-md-1">
+          <p><input id="newUnit" type="text" class="form-control input-sm"></input></p>
+          <p><button id="newSubmit" class="btn btn-default form-control">Add</button></p>
+        </td>
+      </tr>
+    </table>
+
+    <div>
+      <h4 class="pull-right">Weekly total: 30,135 KRW</h4>
+    </div>
+
+  </div>
+
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   </body>
 </html>
