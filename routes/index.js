@@ -8,14 +8,22 @@ var rates = {
   'USD': 0.0001,
   'JPY': 0.1,
 };
+var lastUpdate = null;
 
 function queryCurrencyRate() {
-  console.log('Querying..');
-  return fetch('https://api.exchangeratesapi.io/latest?base=KRW')
-  .then(res => res.json())
-  .then(res => {
-    rates = res.rates;
-  });
+  // Cache result for one hour.
+  if (lastUpdate && (Date.now() - lastUpdate < 60*60*1000)) {
+    console.log('Using cache..');
+    return Promise.resolve();
+  } else {
+    console.log('Querying..');
+    return fetch('https://api.exchangeratesapi.io/latest?base=KRW')
+      .then(res => res.json())
+      .then(res => {
+        rates = res.rates;
+        lastUpdate = Date.now();
+      });
+  }
 }
 
 function totalAmount(spendings) {
