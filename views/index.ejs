@@ -22,18 +22,14 @@
         <th>Amount</th>
         <th>Unit</th>
       </tr>
+      <% for (var i=0; i<spendings.length; i++) { %>
       <tr>
-        <td class="col-md-1">1</td>
-        <td class="col-md-4">Ironman USB stick</td>
-        <td class="col-md-1">20.12</td>
-        <td class="col-md-1">USD</td>
+        <td class="col-md-1"><%= spendings[i].id %></td>
+        <td class="col-md-4"><%= spendings[i].item %></td>
+        <td class="col-md-1"><%= spendings[i].amount %></td>
+        <td class="col-md-1"><%= spendings[i].unit %></td>
       </tr>
-      <tr>
-        <td class="col-md-1">2</td>
-        <td class="col-md-4">Dinner at Pepper's restraunt</td>
-        <td class="col-md-1">7,500</td>
-        <td class="col-md-1">KRW</td>
-      </tr>
+      <% } %>
       <tr class="vcenter">
         <td class="col-md-1"></td>
         <td class="col-md-4"><input id="newItem" type="text" class="form-control input-sm"></input></td>
