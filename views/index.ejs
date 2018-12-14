@@ -51,6 +51,30 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+  $('#newSubmit').click(function() {
+    var params = {
+      item: $('#newItem').val(),
+      amount: $('#newAmount').val(),
+      unit: $('#newUnit').val(),
+    };
+    fetch('/add', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(params),
+    }).then(function(res) {
+      return res.json();
+    }).then(function(res) {
+      if (res.error) {
+        alert(res.error);
+      } else {
+        location.reload();
+      }
+    }).catch(function(err) {
+      alert('Request failed: ' + err);
+    });
+  });
+</script>
 
   </body>
 </html>
