@@ -2,10 +2,29 @@ var db = require('../db');
 var express = require('express');
 var router = express.Router();
 
+function getCurrencyRate(unit) {
+  var rates = {
+    'KRW': 1,
+    'USD': 1000,
+    'JPY': 100,
+  };
+  return rates[unit];
+}
+
+function totalAmount(spendings) {
+  var total = 0;
+  for (var i=0; i<spendings.length; i++) {
+    total += parseFloat(spendings[i].amount)
+      * getCurrencyRate(spendings[i].unit);
+  }
+  return total;
+}
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   var spendings = db.Spending.findAll();
-  res.render('index', { spendings: spendings });
+  var total = totalAmount(spendings);
+  res.render('index', { spendings: spendings, total: total });
 });
 
 /* POST new entry */
