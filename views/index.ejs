@@ -26,7 +26,7 @@
       <tr>
         <td class="col-md-1"><%= spendings[i].id %></td>
         <td class="col-md-4"><%= spendings[i].item %></td>
-        <td class="col-md-1"><%= spendings[i].amount %></td>
+        <td class="col-md-1"><%= parseFloat(spendings[i].amount).toLocaleString() %></td>
         <td class="col-md-1"><%= spendings[i].unit %></td>
       </tr>
       <% } %>
